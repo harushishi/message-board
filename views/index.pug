@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  h2 Have something to say?
+    br
+    a(href=`http://localhost:${process.env.PORT || 3000}/new`)
+      button(type="button") Send a message!
+  h3 Last messages:
+    br
+  ul 
+  each element in messages
+    li #{element.text}
+    br
+    li (#{element.user}) Sent at: #{element.added.getMinutes()}:#{element.added.getHours()}-#{element.added.getDate()}/#{element.added.getMonth()}/#{element.added.getFullYear()}
+    br
+    br
+              
